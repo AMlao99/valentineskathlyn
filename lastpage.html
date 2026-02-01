@@ -62,7 +62,7 @@
   const activities =
     JSON.parse(localStorage.getItem("valentineActivities")) || [];
   const suggestion =
-    localStorage.getItem("valentineSuggestion");
+    localStorage.getItem("valentineSuggestion") || "Wala nay additional si boss amo Kathlyn";
   let formattedDate = "Unknown date 😢";
   if (date) {
     formattedDate = new Date(date).toDateString();
