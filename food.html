@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity Selection</title>
+    <link rel="stylesheet" href="css/food.css" />
+  </head>
+
+  <body>
+    <div id="foodquestion">
+      <b>Ano gusto mo gawin natin babe?</b>
+    </div>
+
+    <div class="food-selection">
+      <!-- ACTIVITY 1 -->
+      <div class="food-item">
+        <video class="activity-media" autoplay muted loop playsinline>
+          <source src="activities/matchadate.mp4" type="video/mp4" />
+        </video>
+        <label>
+          <input type="checkbox" name="activity" value="Matcha date ☕💚" />
+          Matcha date
+        </label>
+      </div>
+
+      <!-- ACTIVITY 2 (placeholder) -->
+      <div class="food-item">
+        <video class="activity-media" autoplay muted loop playsinline>
+          <source src="activities/photobooth.mp4" type="video/mp4" />
+        </video>
+        <label>
+          <input type="checkbox" name="activity" value="Matcha date ☕💚" />
+          Photobooth date
+        </label>
+      </div>
+
+      <!-- ACTIVITY 3 (placeholder) -->
+      <div class="food-item">
+       
+        <img src="activities/dinner.jpeg" />
+        
+        <label>
+          <input type="checkbox" name="activity" value="Matcha date ☕💚" />
+          Dinner date? Sushi/Whatever you're craving
+        </label>
+      </div>
+
+                  <!-- ACTIVITY 3 (placeholder) -->
+      <div class="food-item">
+       
+        <img src="activities/kye.jpeg" />
+        
+        <label>
+          <input type="checkbox" name="activity" value="Matcha date ☕💚" />
+          Ilaag si bossing booba
+        </label>
+      </div>
+
+                  <!-- ACTIVITY 3 (placeholder) -->
+      <div class="food-item">
+       
+        <img src="activities/miffy.jpg" />
+        
+        <label>
+          <input type="checkbox" name="activity" value="Matcha date ☕💚" />
+          All of the above!
+        </label>
+      </div>
+
+      </div>
+      
+
+
+    </div>
+
+    <!-- SUGGESTIONS -->
+    <div class="suggestion-box">
+      <label for="suggestion">
+        Meron ka gusto i-add or suggestion ano gusto mo gawin natin? 💭
+      </label>
+      <textarea
+        id="suggestion"
+        placeholder="Let me know babe..."
+        rows="3"
+      ></textarea>
+    </div>
+
+    <button class="button" id="submitActivities">
+      Submit
+    </button>
+
+
+  <script>
+  document
+    .getElementById("submitActivities")
+    .addEventListener("click", function () {
+
+      // get checked activities
+      const checkedActivities = [];
+      document
+        .querySelectorAll('input[name="activity"]:checked')
+        .forEach((checkbox) => {
+          checkedActivities.push(checkbox.parentElement.textContent.trim());
+        });
+
+      // save activities
+      localStorage.setItem(
+        "valentineActivities",
+        JSON.stringify(checkedActivities)
+      );
+
+      // get suggestion
+      const suggestion =
+        document.getElementById("suggestion").value.trim();
+
+      localStorage.setItem(
+        "valentineSuggestion",
+        suggestion || "No additional suggested place/activity 💕"
+      );
+
+      // go to final page
+      window.location.href = "lastpage.html";
+    });
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Details</title>
+    <link rel="stylesheet" href="css/flower.css" />
+  </head>
+  <body>
+    <div id="thankyou"><b>See you my wuviebooo! 💐</b></div>
+    <div class="date-summary" id="dateSummary"></div>
+    <div class="flower">
+      <div class="f-wrapper">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--yellow"
+          ></div>
+        </div>
+      </div>
+      <div class="f-wrapper f-wrapper--2">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--pink"
+          ></div>
+        </div>
+      </div>
+      <div class="f-wrapper f-wrapper--3">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--purple"
+          ></div>
+        </div>
+      </div>
+      <div class="flower__glass"></div>
+    </div>
+<script>
+  const date = localStorage.getItem("valentineDate");
+  const activities =
+    JSON.parse(localStorage.getItem("valentineActivities")) || [];
+  const suggestion =
+    localStorage.getItem("valentineSuggestion");
+  let formattedDate = "Unknown date 😢";
+  if (date) {
+    formattedDate = new Date(date).toDateString();
+  }
+  let activitiesHTML = activities.length
+    ? activities.map((a) => `<li>${a}</li>`).join("")
+    : "<li>magpuyo </3></li>";
+  document.getElementById("dateSummary").innerHTML = `
+    <div class="summary-card">
+      <h2>💘 Valentine's Date Details</h2>
+      <p><strong>📅 Valentine's date on:</strong><br>${formattedDate}</p>
+      <p><strong>🎀 What we'll be doing:</strong></p>
+      <ul>${activitiesHTML}</ul>
+      <p><strong> Ano pa iba mo gustong gawin:</strong><br>
+        ${suggestion}
+      </p>
+      <p class="note">
+        Please screenshot this and send it to your gwapo na uyab hehehe 🥺❤️
+      </p>
+    </div>
+  `;
+</script> 
+  </body>
+</html>

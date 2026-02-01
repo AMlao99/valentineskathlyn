@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For my miffy girlie</title>
+    <link rel="stylesheet" href="css/valentine.css" />
+  </head>
+
+  <body>
+    <div id="valentineQuestion">
+      <b>My owat, my Kathlyn will you be my valentine?</b>
+    </div>
+
+<button class="answerButton" id="yesButton" onclick="location.href='date.html'">
+  OO
+</button>
+
+<button class="answerButton" id="noButton">
+  di ko kay sungogan ka
+</button>
+
+    <br />
+
+    <img src="sponge.gif" alt="cat asking question" class="responsive" />
+
+<script>
+  const noButton = document.getElementById("noButton");
+  const yesButton = document.getElementById("yesButton");
+
+  const phrases = [
+    "di ko kay sungogan ka",
+    "hala di ko nimo love na noh???",
+    "mo OO ka or mag YES ka?!!",
+    "naa ka deal if mag yes ka 😭"
+  ];
+
+  let index = 0;
+
+  noButton.addEventListener("click", function () {
+    // change NO button text (loops)
+    index = (index + 1) % phrases.length;
+    noButton.textContent = phrases[index];
+
+    // make YES button bigger every time NO is clicked
+    const currentFontSize = parseInt(
+      window.getComputedStyle(yesButton).fontSize
+    );
+
+    yesButton.style.fontSize = currentFontSize + 10 + "px";
+  });
+</script>
+  </body>
+</html>
